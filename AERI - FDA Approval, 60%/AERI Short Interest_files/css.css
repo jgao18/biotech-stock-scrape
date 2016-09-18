@@ -1,0 +1,23 @@
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+/* "name" changes the fonts associated with the stock symbols */
+.name {background-color:#ffffff; font-family: Arial, Verdana ; font-size: 11px; color: #000000; }
+.value {background-color:#ffffff; font-family: Arial, Verdana ; font-size: 11px; color: #000000; }
+
+/* these changes the fonts everywhere else */
+body,td {font-family:arial,helvetica; font-size:12px;}
+
+/* "dylanfont" changes the fonts in everywhere you put "class=dylanfont". You can put it in any tag (ex: <td class=dylanfont>) . Look at the very first table in home.php.*/
+.dylanfont {font-family: Arial, Verdana ; font-size: 12px; color: #000000; }
+
+
+@import url("style.css");
+
+a.style12:hover {
+	text-decoration: none;
+        border-bottom: 1px solid #FFFFFF;
+}
+

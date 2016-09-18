@@ -1,0 +1,16 @@
+- DRYS appears to have formed a triple bottom, after having done nothing but drop since May of 2016, with a few spike ups along the way
+- The 5 Day/5 Min chart satisfies many of the criteria required for triple bottom identification, as listed by Bulkowski
+   + Price trend - Clear downward trend since May into the triple bottom
+   + Shape - Three distinct valleys
+   + Bottom price -  Three valleys fall exactly to .45, and no lower
+   - Confirmation - On 9/15 and 9/16, DRYS spiked up past the highest peak between the valleys, but did not close above it
+   + Volume - Higher volume on the first and second bottom than the third
+
+   - Flat Base - The triple bottom does not have appeared to have formed after a flat base
+   + MMU - The triple bottom does not appear after a measured move up
+   + Up trend - The triple bottom does not appear after an up trend
+   + Declines - The short term triple bottom appears after a long decline
+   + Peak - The triple bottom does not appear after a peak
+   + Shelf - The third bottom appears flat like a shelf and supports the .45 bottom
+   - Last valley - The last valley does not close above the second
+   + Throwbacks - No throwback exists
