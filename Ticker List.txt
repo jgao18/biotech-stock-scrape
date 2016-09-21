@@ -1,0 +1,2 @@
+AERI - P3 Approval, 60%
+NVAX - P3 Failure, 80%
