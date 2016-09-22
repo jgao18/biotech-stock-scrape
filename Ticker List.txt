@@ -1,2 +1,3 @@
-AERI - P3 Approval, 60%
-NVAX - P3 Failure, 80%
+AERI, 9-14-16, P3 Results Met Primary Efficacy Endpoint, 60%
+NVAX, 9-15-16, P3 Failure, 80%
+SRPT, 9-19-16, P3 Accelerated Approval, 90%

@@ -7,11 +7,10 @@
 
 # usage: python extract_data.py period ticker1 ticker2 ticker3...
 
+import os
 import sys
 import urllib
 import datetime
-from collections import OrderedDict
-
 
 interval = 60 # seconds
 period = sys.argv[1]
@@ -57,25 +56,41 @@ for ticker in sys.argv[2:]:
     # Sort data by date
     tickData.sort(key=lambda x: x[0])
 
-    fileName = ticker + ".txt"
+    # Locate proper directory to save data dump
+    scriptDirectory = os.path.dirname(__file__)
+
+    if not os.path.isdir(ticker): # create ticker directory if one doesn't exist
+        os.mkdir(ticker)
+                 
+    localPath = ticker + "\\" + ticker + "_data.csv"
+    filePath = os.path.join(scriptDirectory, localPath)
 
     # Appened data to data file
-    with open(fileName, "a") as dataFile:
+    with open(filePath, "a") as dataFile:
         for tick in tickData:
             dataFile.write(tick[0] + "," + str(tick[1]) + "," +str(tick[2]) + "," +str(tick[3]) + "," +str(tick[4]) + "," +str(tick[5]) + "\n")
     dataFile.close()
 
     # Remove duplicates
-    linesSeen = []
+    timesSeen = []
     uniqueLines = []
-    with open(fileName, "r") as dataFile:
+    with open(filePath, "r") as dataFile:
         for line in dataFile:
-            if line not in linesSeen:
-                linesSeen.append(line)
+            timestamp = line.split(',')[0]
+            if timestamp not in timesSeen:
+                timesSeen.append(timestamp)
                 uniqueLines.append(line)
     dataFile.close()
 
-    with open(fileName, "w") as dataFile:
+    uniqueLines.sort() # resort before rewriting
+    with open(filePath, "w") as dataFile:
         for line in uniqueLines:
             dataFile.write(line)
     dataFile.close()
+
+    # Record extraction in history file
+    extractHistoryFile = os.path.join(scriptDirectory, "extract_history.txt")
+    with open(extractHistoryFile, "a") as historyFile:
+        date = datetime.datetime.today().strftime("%m/%d/%Y")
+        historyFile.write(date + " - " + ticker + ", " + period + "d" + "\n")
+    historyFile.close()
