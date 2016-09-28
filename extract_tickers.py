@@ -20,7 +20,10 @@ for line in sourceSplit:
     if "/company/" in line:
         regTicker = re.search('/company/(.*)" class="ticker">', line)
         ticker = regTicker.group(1)
-        tickerList.append(ticker)
+        # For some reason, a couple tickers have "-1" added at the end
+        if "-1" in ticker:
+            ticker = ticker[:-2]
+        tickerList.append(ticker.upper())
     if 'catalyst-note">' in line:
         regCatalyst = re.search('"catalyst-note">(.*)', line)
         catalystLine = regCatalyst.groups()
@@ -43,17 +46,23 @@ for line in sourceSplit:
 tickerList = sorted(tickerList)
 
 # Writes tickers/catalysts to file
-'''
+
 with open("bio_tickers.txt", "w") as dataFile:
     for ticker in tickerList:
         dataFile.write(ticker + "\n")
 dataFile.close()
-'''
+
+
 
 # Runs extract_data.py on each ticker
+'''
 tickersOnlyList = []
 for ticker in tickerList:
     tickerOnly = ticker.rsplit(':', 1)[0]
     tickersOnlyList.append(tickerOnly)
 
 tickersOnlyList = set(tickersOnlyList)
+
+for ticker in tickersOnlyList:
+    os.system("extract_data.py 20 " + ticker)
+'''
